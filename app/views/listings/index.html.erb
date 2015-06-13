@@ -1,0 +1,38 @@
+<div class="jumbotron">
+   <div class="container">
+   <h1>Add your items to the ShareMyKloset catalog</h1>
+   <h2>Take a picture of the item and write a detailed description</h2>
+   </div>
+</div>
+<table class="table table-hover table-table-condensed">
+  <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Bank</th>
+      <th>Price</th>
+      <th>Min</th>
+      <th>Max</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.currency %></td>
+        <td><%= listing.bank %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.min %></td>
+        <td><%= listing.max %></td>
+        <td><%= link_to 'Show', listing, class: "btn btn-link" %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="container">
+ <%= link_to 'New Listing', new_listing_path %>
+</div>

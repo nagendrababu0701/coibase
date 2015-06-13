@@ -1,0 +1,29 @@
+<div class="container">
+<p>
+  <strong>Currency:</strong>
+  <%= @listing.currency %>
+</p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @listing.bank %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+
+<p>
+  <strong>Min:</strong>
+  <%= @listing.min %>
+</p>
+
+<p>
+  <strong>Max:</strong>
+  <%= @listing.max %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
+</div>
