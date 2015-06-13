@@ -1,9 +1,3 @@
-<div class="jumbotron">
-   <div class="container">
-   <h1>Add your items to the ShareMyKloset catalog</h1>
-   <h2>Take a picture of the item and write a detailed description</h2>
-   </div>
-</div>
 <table class="table table-hover table-table-condensed">
   <thead>
     <tr>
@@ -27,7 +21,10 @@
         <td><%= listing.min %></td>
         <td><%= listing.max %></td>
         <td><%= link_to 'Show', listing, class: "btn btn-link" %></td>
-        
+        <% if (user_signed_in?) && (current_user == listing.user) %>
+        <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+         <% end %>
       </tr>
     <% end %>
   </tbody>
