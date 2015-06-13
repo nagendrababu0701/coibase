@@ -12,8 +12,9 @@ group :production do
 end
 
 
-gem 'devise'
 
+gem 'devise'
+gem "paperclip", "~> 4.2"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -44,6 +45,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 # gem 'capistrano-rails', group: :development
  
 
+gem 'aws-sdk', '~> 1.61.0'
 
 
 group :development, :test do
