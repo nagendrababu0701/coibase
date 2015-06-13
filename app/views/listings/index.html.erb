@@ -20,9 +20,9 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.user.name %></td>
-        <td><%= number_to_currency(listing.price) %></td>
+        <td><%= listing.currency %></td>
         <td><%= listing.bank %></td>
-        <td><%= listing.price %></td>
+        <td><%= number_to_currency(listing.price) %></td>
         <td><%= listing.min %></td>
         <td><%= listing.max %></td>
         <td><%= link_to 'Show', listing, class: "btn btn-link" %></td>
