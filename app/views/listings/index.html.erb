@@ -1,7 +1,7 @@
 <div class="jumbotron">
    <div class="container">
-   <h1>Add your items to the ShareMyKloset catalog</h1>
-   <h2>Take a picture of the item and write a detailed description</h2>
+   <h1></h1>
+   <h2></h2>
    </div>
 </div>
 <table class="table table-hover table-table-condensed">
@@ -13,7 +13,6 @@
       <th>Price</th>
       <th>Min</th>
       <th>Max</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -21,7 +20,7 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.user.name %></td>
-        <td><%= listing.currency %></td>
+        <td><%= number_to_currency(listing.price) %></td>
         <td><%= listing.bank %></td>
         <td><%= listing.price %></td>
         <td><%= listing.min %></td>
