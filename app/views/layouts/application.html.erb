@@ -9,7 +9,7 @@
 <body>
  
  <%= render 'layouts/navbar' %>
-  <div class="container">
+  
   
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
@@ -20,7 +20,7 @@
     <% end %>
   <% end %>
   <%= yield %>
- </div>
+ 
 
 </body>
 </html>
