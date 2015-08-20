@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-
+ruby "2.1.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: [:development, :test]
+#gem 'sqlite3', group: [:development, :test]
 
-group :production do
 	gem'pg'
+group :production do
 	gem 'rails_12factor'
 end
 
@@ -15,7 +15,17 @@ end
 
 gem 'devise'
 gem "paperclip", "~> 4.2"
-
+gem 'chain-ruby', '~> 2.3.0'
+gem 'bitcoin-ruby', git: 'https://github.com/lian/bitcoin-ruby', branch: 'master', require: 'bitcoin'
+gem 'rqrcode'
+gem 'utf8-cleaner'
+#gem 'rack-utf8_sanitizer'
+gem 'rqrcode_png'
+gem 'dragonfly'
+#gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
+gem 'simple_captcha2', require: 'simple_captcha'
+gem 'pry'
+#gem 'font-awesome-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -23,7 +33,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -51,7 +61,7 @@ gem 'aws-sdk', '~> 1.61.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'quiet_assets'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

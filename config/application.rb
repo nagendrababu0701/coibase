@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
+#require "#{Rails.root}/app/middleware/handle_invalid_percent_encoding.rb"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -19,8 +19,10 @@ module CoinCompass
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
+    #config.middleware.insert 0, HandleInvalidPercentEncoding
+    #config.middleware.insert 0, Rack::UTF8Sanitizer
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.quiet_assets = true
   end
 end

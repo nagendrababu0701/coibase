@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirm your new order <%=raw @seller.id%> at BitQuick.co</h1>
+    <p>
+      You have recently submitted a new sell order at BitQuick.co. Please review the details below and confirm they are correct.
+    </p>
+    Bank Name   <%=@seller.bank_name.present? ? @seller.bank_name : @seller.credname %>
+    Account Name  <%=@seller.bank_name.present? ? @seller.bank_name : @seller.credname %>
+    Account Number  <%=@seller.seller_account_number%>
+    Amount of BTC to sell <%=@seller.sell_amount%>
+    To modify or cancel your order, go to this page, enter your order modification PIN and confirm.
+    To view pending buyer holds and the status of your order, go to this page.
+    Please finalise your order by sending 5 BTC to the below address, and your order will be placed live after 1 confirmation:
+
+    <span><%= raw @seller.bit_address %></span>
+    <span><%=image_tag attachments['missing.png'].url %></span>
+  </body>
+</html>

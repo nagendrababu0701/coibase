@@ -1,0 +1,246 @@
+<div class="jumbotron">
+   <div class="container">
+   
+   </div>
+</div>
+<div class="container-fluid" style = "margin-top:15px;">
+  <div class="row row-offcanvas row-offcanvas-left">
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+      <div class="tabbable tabs-left" style="padding-left:100px;">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a href="#home" role="tab" data-toggle="tab">
+              <icon class="fa fa-home"></icon> Sell
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane fade active in" id="home">
+        <div class="col-md-12">
+          <div class="well">
+            <h3>Selling Bitcoins Has Never Been Easier!</h3>
+            <span>Start selling today by completing your sell order form below, or launching the quick sell application! There is never a fee to sell your bitcoins or cancel your order!.</span>
+            <%= form_for @seller, :html => {:class => "form-horizontal"},role: "form" do |f| %>
+              <div>
+                <% @seller.errors.full_messages.each do |error| %>
+                  <li>
+                    <%= error%>
+                   </li>
+                <% end %>
+              </div>
+              <fieldset>
+                <div class="control-group">
+                  <!-- Username -->
+                  <label class="control-label"  for="username">Credit Union?:</label>
+                  <div class="controls">
+                    <%=f.check_box :dynamicos2, class: "form-control" %>
+                    <a title="Learn More About CO-Op and Credit Unions" href="http://www.co-opsharedbranch.org/" target="_blank"><%=image_tag 'icon-question2.png',style: "width: 12,height: 12" %></a>
+                  </div>
+                </div>
+       
+                <div class="control-group hide_bank">
+                  <!-- E-mail -->
+                  <label class="control-label" for="email">Bank Name:</label>
+                  <div class="controls">
+                    <%=f.select :bank_name, options_for_select([["Select a bank..",""], "5/3 Bank","Australia and New Zealand Banking Group","Bank of America", "Bank of Colorado", "Bank of the West", "BB&amp;T Bank", "BBVA Bank", "BMO Bank of Montreal", "BMO Harris (USA)", "BNYMellon", "Capital One", "CIBC", "Citibank", "Citizen’s Bank", "Coast Capital Savings", "Commonwealth Bank", "GE Capital Banking", "Goldman Sachs", "HSBC Bank of USA", "HSBC Holdings UK", "Huntington Bank", "IGN Canda", "Key Bank", "Morgan Stanley", "National Australia Bank", "National Bank Canada", "Navy Federal Credit Union", "PNC Bank", "RBC Royal Bank", "Regions Bank", "Santander Bank", "SEPA Transfer (EU Only)", "Scotiabank", "SunTrust","TD Canada Trust","TD USA","US Bank","Union Bank","Wells Fargo","Westpac","Woodforest National Bank"]), class: 'input-xlarge'%>
+                    
+                  </div>
+                </div>
+       
+                  <div class="control-group cred_name">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Account Name:</label>
+                    <div class="controls">
+                      <%=f.text_field :credname, class: 'input-xlarge' %>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Account Number:</label>
+                    <div class="controls">
+                      <%=f.text_field :seller_account_number, class: 'input-xlarge account_number'%>
+                      <span class="accnt_number_err_msg"></span>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Confirm Account Number:</label>
+                    <div class="controls">
+                      <%=f.text_field :seller_account_number_confirmation, class: 'account_number input-xlarge'%>
+                      <span class="con_accnt_number_err_msg"></span>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Amount to Sell</label>
+                    <div class="controls">
+                      <span class="add-on"><i class="fa fa-bitcoin " style="font-size:; color: #f7941d"></i></span>
+                      <%=f.text_field :sell_amount, class: 'input-xlarge'%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Minimum Transaction Size</label>
+                    <div class="controls">
+                      <span class="add-on"><i class="fa fa-bitcoin " style="font-size:; color: #f7941d"></i></span>
+                      <%=f.text_field :minsell_amount, class: 'input-xlarge'%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Currency</label>
+                    <div class="controls">
+                      <%=f.select :currency, options_for_select([["Select One..",""], "USD","EUR","CAD"]), class: 'input-xlarge' %>
+                    </div>
+                  </div>
+          
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Dynamic Pricing?</label>
+                    <div class="controls">
+                      <%=f.check_box :dynamicos%>
+                    </div>
+                  </div>
+
+                  <div class="control-group hide_st_price">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Static Price</label>
+                    <div class="controls">
+                      <span class="add-on">$/<i class="fa fa-bitcoin " style="font-size:; color: #f7941d"></i></span>
+                      <%=f.text_field :sell_dollar_value%>
+                    </div>
+                  </div>
+
+        
+                  <div class= "hide-default" style="display:none">
+                    <div class="control-group">
+                      <!-- Password -->
+                      <label class="control-label"  for="password_confirm">Dynamic Price</label>
+                      <div class="controls">
+                        <%=f.select :exchange, options_for_select([["Select One",""], "Bitcoinaverage.com", "Bitfinex", "BitStamp"]), class: 'input-xlarge' %>
+                        
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <!-- Password -->
+                      <label class="control-label"  for="password_confirm">(Exchange/Price/Premium)</label>
+                      <div class="controls">
+                        <%=f.select :typed, options_for_select([["Select One",""], "Last", "24h Avg", "Whichever is greater"]), class: 'input-xlarge' %>
+                        
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <!-- Password -->
+                     
+                      <div class="controls">
+                        <span class="add-on">% +/-</span>
+                        <%=f.text_field :dynacharge, class: 'input-sm' %>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="control-group">
+                      <!-- Password -->
+                      <label class="control-label"  for="password_confirm">Your email address</label>
+                      <div class="controls">
+                        <%=f.text_field :seller_email, class: 'input-xlarge'%>
+                        
+                      </div>
+                  </div>
+
+                  <div class="control-group">
+                      <!-- Password -->
+                      <label class="control-label"  for="password_confirm">Confirm your email address</label>
+                      <div class="controls">
+                        <%=f.text_field :seller_email_confirmation, class: 'input-xlarge' %>
+                        
+                      </div>
+                  </div>
+                  <hr/>
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Have Clef?</label>
+                    <div class="controls">
+                      <%=f.check_box :dynamicos2, class: 'input-xlarge' %>
+                      
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                      <!-- Password -->
+                    <label class="control-label"  for="password_confirm">Order Modification PIN</label>
+                    <div class="controls">
+                      <%=f.password_field :deletepin, class: 'input-xlarge' %>
+                      
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                      <!-- Password -->
+                      <%#= f.simple_captcha :label => "Are you a robot?" %>
+                    <label class="control-label"  for="password_confirm">Are you a robot?</label>
+                    <div class="controls">
+                      <%= f.simple_captcha :label => "" %>
+                      <%#=f.text_field :captcha_code, :as => :simple_captcha %>
+                      
+                    </div>
+                  </div>
+                  <p style="padding-left: 180px;">Receive email notifications each time a buyer hold is placed?&nbsp;&nbsp;<%=f.check_box :notif %><br>
+                  I agree to the <a href="terms-of-service.php" target="_blank">Terms of Service</a>, and to confirm deposits within 3 hours. <%=f.check_box :tos %></p>
+
+                  <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                      <%=f.submit 'Submit Order', class: "btn btn-success" %>
+                    </div>
+                  </div>
+                </fieldset>
+              <%end%>
+            </div><!--/span-->
+          </div>
+        </div>
+     
+      </div>
+  </div>
+</div>
+
+<script>
+  $('#seller_dynamicos2').click(function(){
+    if($('#seller_dynamicos2').is(':checked')){
+      $('.hide_bank').hide()
+      $('.cred_name').show()
+    }
+    else{
+      $('.cred_name').hide()
+      $('.hide_bank').show()
+    }
+  })
+  $('#seller_dynamicos').click(function(){
+    if($('#seller_dynamicos').is(':checked')){
+      $('.hide_st_price').hide()
+      $('.hide-default').show()
+    }
+    else{
+      $('.hide-default').hide()
+      $('.hide_st_price').show()
+    }
+  })
+  $(document).ready(function(){
+    $("#seller_sellaccnumber, #seller_csellaccountnumber").keypress(function(e){
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $(".accnt_number_err_msg, .con_accnt_number_err_msg").html("Digits Only").show().fadeOut("slow");
+        return false
+      }
+    })
+  })
+</script>
