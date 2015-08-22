@@ -105,8 +105,7 @@ config.action_mailer.smtp_settings = {
   :domain               => 'bitcoins.com',
   :user_name            => "coincompass2016@outlook.com",
   :password             => "1bit2bit",
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  
+  :authentication       => 'plain'  
 }
 
 end
