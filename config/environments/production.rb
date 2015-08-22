@@ -100,11 +100,11 @@ Rails.application.configure do
 config.action_mailer.delivery_method = :smtp
 # # SMTP settings for gmail
 config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
+  :address              => "smtp.live.com",
   :port                 => 587,
   :domain               => 'bitcoins.com',
-  :user_name            => "coincompass2016@outlook.com",
-  :password             => "1bit2bit",
+  :user_name            => "rordeveloper@outlook.com",
+  :password             => "Diehard_5",
   :authentication       => 'plain'  
 }
 
