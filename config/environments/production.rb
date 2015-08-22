@@ -103,8 +103,8 @@ config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => 'bitcoins.com',
-  :user_name            => ENV["email"],
-  :password             => ENV["email_password"],
+  :user_name            => "coincompass2016@outlook.com",
+  :password             => "1bit2bit",
   :authentication       => 'plain',
   :enable_starttls_auto => true  
 }
