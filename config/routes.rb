@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  root 'sellers#index'
   devise_for :users
   resources :listings
   resources :sellers
   resources :buyers
   get 'pages/about'
-  root 'sellers#index'
   get 'pages/contact'
   get 'seller' => "listings#seller"
   post "publish_seller" => "admin#publish_seller"

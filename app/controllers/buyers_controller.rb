@@ -1,4 +1,5 @@
 class BuyersController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_seller
 
   def new
