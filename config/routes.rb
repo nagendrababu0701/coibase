@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   resources :listings
   resources :sellers
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   root 'sellers#index'
   get 'pages/contact'
   get 'seller' => "listings#seller"
+  post "publish_seller" => "admin#publish_seller"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

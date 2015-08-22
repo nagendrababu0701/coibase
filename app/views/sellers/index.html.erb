@@ -37,13 +37,13 @@
           <td><%= number_to_currency(seller.minsell_amount, :unit => '$Cent ')%></td>
           <td><%= number_to_currency(seller.sell_amount, :unit => '$Cent ')%></td>
         <% end %>
-        <% if seller.buyers.present? %>
-          <td>
-          <%= link_to "Buy BitCoin", new_buyer_path(seller_id: seller.id), disabled: true, class: "btn btn-info" %></td>
-        <%else%>
-           <td>
-          <%= link_to "Buy BitCoin", new_buyer_path(seller_id: seller.id), class: "btn btn-info" %></td>
-        <%end%>
+          <% if current_user.buyers.count >= 2 || seller.buyers.present? %>
+            <td>
+            <%= link_to "Buy BitCoin", new_buyer_path(seller_id: seller.id), disabled: true, class: "btn btn-info" %></td>
+          <%else%>
+             <td>
+            <%= link_to "Buy BitCoin", new_buyer_path(seller_id: seller.id), class: "btn btn-info" %></td>
+          <%end%>
       </tr>
     <% end %>
   </tbody>

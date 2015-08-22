@@ -2,7 +2,7 @@ class SellersController < ApplicationController
 	#before_action :generate_key, only: [:create]
 
 	def index
-    @sellers = Seller.all
+    @sellers = Seller.where(publish: true)
 	end
 
 	def new
@@ -50,6 +50,6 @@ class SellersController < ApplicationController
       params.require(:seller).permit(:dynamicos2, :bank_name, :credname, :sellaccname,
         :seller_account_number, :seller_account_number_confirmation, :sell_amount, :minsell_amount,
         :currency, :dynamicos, :exchange, :typed, :dynacharge, :sell_dollar_value,
-        :seller_email, :seller_email_confirmation, :deletepin, :captcha_code, :notif, :tos)
+        :seller_email, :seller_email_confirmation, :deletepin, :captcha_code, :notif, :tos, :captcha, :captcha_key)
     end
 end

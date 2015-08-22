@@ -77,16 +77,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-   :address              => "smtp.live.com",
-   :port                 => 587,
-   :user_name            => "rordeveloper@outlook.com",
-   :password             => "Diehard_5",
-   :authentication       => "plain",
-   :enable_starttls_auto => true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # # # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  # :address              => "smtp.gmail.com",
+  # :port                 => 587,
+  # :domain               => 'baci.lindsaar.net',
+  # :user_name            => 'reggiest09@gmail.com',
+  # :password             => '1bit2bit',
+  # :authentication       => 'plain',
+  # :enable_starttls_auto => true  
+  # }
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
@@ -96,7 +97,16 @@ Rails.application.configure do
   }
 }
 
-
-
+config.action_mailer.delivery_method = :smtp
+# # SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'bitcoins.com',
+  :user_name            => ENV["email"],
+  :password             => ENV["email_password"],
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  
+}
 
 end

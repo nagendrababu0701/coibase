@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates :name, presence: :true
   has_many :listings, dependent: :destroy
   has_many :sellers, dependent: :destroy
-
-
+  has_many :buyers, dependent: :destroy
 
 end

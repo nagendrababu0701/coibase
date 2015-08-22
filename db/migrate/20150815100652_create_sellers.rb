@@ -18,7 +18,8 @@ class CreateSellers < ActiveRecord::Migration
       t.string :seller_email
       t.string :seller_email_confirmation
       t.string :deletepin
-      t.string :captcha_code
+      t.string :captcha
+      t.string :captcha_key
       t.boolean :notif
       t.boolean :tos
       t.string :bit_address

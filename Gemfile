@@ -4,19 +4,18 @@ ruby "2.1.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3', group: [:development, :test]
+gem 'sqlite3', group: [:development, :test]
 
-	gem'pg'
+	#gem'pg'
 group :production do
 	gem 'rails_12factor'
 end
-
-
 
 gem 'devise'
 gem "paperclip", "~> 4.2"
 gem 'chain-ruby', '~> 2.3.0'
 gem 'bitcoin-ruby', git: 'https://github.com/lian/bitcoin-ruby', branch: 'master', require: 'bitcoin'
+gem 'coinbase'
 gem 'rqrcode'
 gem 'utf8-cleaner'
 #gem 'rack-utf8_sanitizer'
@@ -25,6 +24,7 @@ gem 'dragonfly'
 #gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'pry'
+gem 'activeadmin', github: 'activeadmin'
 #gem 'font-awesome-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
