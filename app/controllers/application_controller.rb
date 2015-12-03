@@ -1,3 +1,4 @@
+require 'coinbase/wallet'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -12,11 +13,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
   end
 
-  def client_coinbase
+  def client
     if Rails.env == 'development'
-      @client = Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase, api_url: "https://api.sandbox.coinbase.com")
+      Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase, api_url: "https://api.sandbox.coinbase.com")
     else
-      @client = Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase)    
+      Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase)    
     end  
   end
 

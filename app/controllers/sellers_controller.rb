@@ -24,10 +24,11 @@ class SellersController < ApplicationController
     # end
     @seller = current_user.sellers.new(seller_params)
     if @seller.save
-      @client.primary_account.sell(amount: @seller.sell_amount, currency: @seller.currency)
-      qr_code = @client.primary_account.addresses
+      client.primary_account.sell(amount: @seller.sell_amount, currency: @seller.currency)
+      qr_code = client.primary_account.addresses
       BitcoinMailer.send_email_user(params[:seller][:seller_email],qr_code,@seller).deliver
     end
+    redirect_to :back
   end
 
   # def create
