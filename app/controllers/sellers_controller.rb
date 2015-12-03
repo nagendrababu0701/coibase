@@ -11,16 +11,22 @@ class SellersController < ApplicationController
 
   def create
     # @address
+    # @seller = current_user.sellers.new(seller_params)
+    # key = Bitcoin::generate_key
+    # @seller.bit_address = Bitcoin::pubkey_to_address(key[1])
+    # if @seller.save
+    #   qr_code = RQRCode::QRCode.new(@seller.bit_address, :size => 4, :level => :h).to_img
+    #   qr_code.resize(200, 200).save("app/assets/images/missing.png")
+    #   BitcoinMailer.send_email_user(params[:seller][:seller_email],@seller).deliver
+    #   redirect_to sellers_path
+    # else
+    #   render 'new'
+    # end
     @seller = current_user.sellers.new(seller_params)
-    key = Bitcoin::generate_key
-    @seller.bit_address = Bitcoin::pubkey_to_address(key[1])
     if @seller.save
-      qr_code = RQRCode::QRCode.new(@seller.bit_address, :size => 4, :level => :h).to_img
-      qr_code.resize(200, 200).save("app/assets/images/missing.png")
-      BitcoinMailer.send_email_user(params[:seller][:seller_email],@seller).deliver
-      redirect_to sellers_path
-    else
-      render 'new'
+      @client.primary_account.sell(amount: @seller.sell_amount, currency: @seller.currency)
+      qr_code = @client.primary_account.addresses
+      BitcoinMailer.send_email_user(params[:seller][:seller_email],qr_code,@seller).deliver
     end
   end
 
