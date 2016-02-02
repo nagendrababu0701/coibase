@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sell_buy: MyString
+  country: MyString
+  currency: MyString
+  bank_name: MyString
+  margin: 1
+  min_transaction_limit: 1
+  max_transaction_limit: 1
+  restrict_to: MyString
+  price: 9.99
+  title: MyString
+  location: MyString
+  terms: MyText
+  minimum_volume: 1
+  minimum_feedback_score: 1
+  new_buyer_limit: 9.99
+  payment_ref: MyString
+  ref_type: MyString
+  track_liquidity: false
+  identified: false
+  real_name_req: false
+  sms_verify: false
+  trusted_person: false
+  user_id: 
+
+two:
+  sell_buy: MyString
+  country: MyString
+  currency: MyString
+  bank_name: MyString
+  margin: 1
+  min_transaction_limit: 1
+  max_transaction_limit: 1
+  restrict_to: MyString
+  price: 9.99
+  title: MyString
+  location: MyString
+  terms: MyText
+  minimum_volume: 1
+  minimum_feedback_score: 1
+  new_buyer_limit: 9.99
+  payment_ref: MyString
+  ref_type: MyString
+  track_liquidity: false
+  identified: false
+  real_name_req: false
+  sms_verify: false
+  trusted_person: false
+  user_id: 
