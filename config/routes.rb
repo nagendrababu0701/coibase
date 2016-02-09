@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  namespace :users do
+  get 'omniauth_callbacks/coinbase'
+  end
+
   resources :items
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'sellers#index'
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :listings
   resources :sellers
   resources :buyers
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'seller' => "listings#seller"
   post "publish_seller" => "admin#publish_seller"
+  get '/oauth2/callback' => 'items#callback'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
