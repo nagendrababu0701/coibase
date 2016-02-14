@@ -15,4 +15,8 @@ class Users::OmniauthCallbacksController < ApplicationController
     end
   end
 
+  def failure
+  end
+  
 end
+

@@ -234,6 +234,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :coinbase, Rails.application.secrets.oauth_id_coinbase, Rails.application.secrets.oauth_secret_coinbase, scope: 'user balance'
+  # config.omniauth :coinbase, ENV["COINBASE_CLIENT_ID"], ENV["COINBASE_CLIENT_SECRET"], scope: 'user balance'
 
 
   # ==> Warden configuration

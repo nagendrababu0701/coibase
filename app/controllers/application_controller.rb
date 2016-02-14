@@ -13,12 +13,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
   end
 
-  def client
-    if Rails.env == 'development'
-      Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase, api_url: "https://api.sandbox.coinbase.com")
-    else
-      Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase)    
-    end  
-  end
+  # def client
+  #   if Rails.env == 'development'
+  #     Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase, api_url: "https://api.sandbox.coinbase.com")
+  #   else
+  #     Coinbase::Wallet::Client.new(api_key: Rails.application.secrets.api_key_coinbase, api_secret: Rails.application.secrets.api_secret_coinbase)    
+  #   end  
+  # end
 
 end
