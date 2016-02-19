@@ -25,7 +25,7 @@
 
 #main-slider {
   position: relative;
-  margin-top:90px;
+  /*margin-top:90px;*/
 }
 @media(max-width:767px) {
 #main-slider {
@@ -317,8 +317,18 @@
 	right: 20px;
 	top: 30px;
 }
-
-
+.form-center{
+	/*width: 25%;*/
+	float: none;
+	margin: 0 auto;
+}
+/*.header-text{
+	float: none;
+	margin: 0 auto;
+}*/
+.navbar-fixed-top, .navbar-fixed-bottom{
+	position: relative !important;
+}
 
 
 

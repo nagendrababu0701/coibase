@@ -1,119 +1,170 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
+<div class ="container-fluid">
+  <div class="col-sm-12 col-sm-offset-6 col-md-12 col-md-offset-0 main">
+    
+        <div class="col-md-12">
+          <div class="well">
+            <div class="header-text">
+              <h3>Selling Bitcoins Has Never Been Easier!</h3>
+              <span>Start selling today by completing your sell order form below,There is never a fee to sell your bitcoins or cancel your order!..</span>
+            </div>
 
-    <%= f.radio_button :sell_buy, "sell local" %>    
-    <%= f.label :sell_buy, "sell local" %><br>
-    <%= f.radio_button :sell_buy, "sell online" %>
-    <%= f.label :sell_buy, "sell online" %><br>
-    <%= f.radio_button :sell_buy, "buy local" %>
-        <%= f.label :sell_buy, "buy local" %><br>
-    <%= f.radio_button :sell_buy, "buy online" %>
-        <%= f.label :sell_buy, "buy online" %><br>
+            <%= form_for @item, :html => {:class => "form-horizontal form-center"},role: "form" do |f| %>
+              <% if @item.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+                  <ul>
+                  <% @item.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <fieldset>
+                <div class="control-group">
+                  <label class="control-label"  for="username">sell local:</label>
+                  <div class="controls">
+                    <%=f.radio_button :sell_buy, "sell local"%>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"  for="username">sell online:</label>
+                  <div class="controls">
+                    <%=f.radio_button :sell_buy, "sell local" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"  for="username">buy local:</label>
+                  <div class="controls">
+                    <%=f.radio_button :sell_buy, "sell local" %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"  for="username">buy online:</label>
+                  <div class="controls">
+                    <%=f.radio_button :sell_buy, "sell local" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3">
+                    <%=f.label :country %>
+                    <%=f.text_field :country, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%=f.label :payment_method %>
+                    <%=f.select :payment_method, Item::PAYMENT_METHOD, {}, { class: "form-control" } %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3">
+                    <%=f.label :currency %>
+                    <%=f.select :currency, Item::CURRENCY_TYPE,  {}, { class: "form-control" } %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%=f.label :bank_name %>
+                    <%=f.text_field :bank_name, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3">
+                    <%=f.label :margin %>
+                    <%=f.number_field :margin, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%=f.label :min_transaction_limit %>
+                    <%=f.number_field :min_transaction_limit, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3">
+                    <%=f.label :max_transaction_limit %>
+                    <%=f.number_field :max_transaction_limit, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%=f.label :restrict_to %>
+                    <%=f.text_field :restrict_to, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%=f.label :title %>
+                    <%=f.text_field :title, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%=f.label :price %>
+                    <%=f.text_field :price, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :location %>
+                    <%= f.text_field :location, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :terms %>
+                    <%= f.text_area :terms, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :minimum_volume %>
+                    <%= f.number_field :minimum_volume, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :minimum_feedback_score %>
+                    <%= f.number_field :minimum_feedback_score, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :new_buyer_limit %>
+                    <%= f.text_field :new_buyer_limit, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :payment_ref %>
+                    <%= f.text_field :payment_ref, class: "form-control" %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :ref_type %>
+                    <%= f.text_field :ref_type, class: "form-control" %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :track_liquidity %>
+                    <%= f.check_box :track_liquidity %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :identified %>
+                    <%= f.check_box :identified %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :real_name_req %>
+                    <%= f.check_box :real_name_req %>
+                  </div>
+                </div>
+                <div class = "form-group">
+                  <div class = "col-sm-3 col-md-3">
+                    <%= f.label :sms_verify %>
+                    <%= f.check_box :sms_verify %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= f.label :trusted_person %>
+                    <%= f.check_box :trusted_person %>
+                  </div>
+                </div>
+                <div class="actions col-sm-3">
+                  <%= f.submit 'Submit',class:  "btn btn-primary"%>
+                </div>
+                <div class="actions col-sm-3">
+                  <%= link_to 'Back', items_path,class: "btn btn-primary" %>
+                </div>
+              </fieldset> 
+            <%end%>
+          </div>
+        </div>
+    
   </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :payment_method %><br>
-    <%= f.select :payment_method, Item::PAYMENT_METHOD %>
-  </div>
-  <div class="field">
-    <%= f.label :currency %><br>
-    <%= f.select :currency, Item::CURRENCY_TYPE %>
-  </div>
-  <div class="field">
-    <%= f.label :bank_name %><br>
-    <%= f.text_field :bank_name %>
-  </div>
-  <div class="field">
-    <%= f.label :margin %><br>
-    <%= f.number_field :margin %>
-  </div>
-  <div class="field">
-    <%= f.label :min_transaction_limit %><br>
-    <%= f.number_field :min_transaction_limit %>
-  </div>
-  <div class="field">
-    <%= f.label :max_transaction_limit %><br>
-    <%= f.number_field :max_transaction_limit %>
-  </div>
-  <div class="field">
-    <%= f.label :restrict_to %><br>
-    <%= f.text_field :restrict_to %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :terms %><br>
-    <%= f.text_area :terms %>
-  </div>
-  <div class="field">
-    <%= f.label :minimum_volume %><br>
-    <%= f.number_field :minimum_volume %>
-  </div>
-  <div class="field">
-    <%= f.label :minimum_feedback_score %><br>
-    <%= f.number_field :minimum_feedback_score %>
-  </div>
-  <div class="field">
-    <%= f.label :new_buyer_limit %><br>
-    <%= f.text_field :new_buyer_limit %>
-  </div>
-  <div class="field">
-    <%= f.label :payment_ref %><br>
-    <%= f.text_field :payment_ref %>
-  </div>
-  <div class="field">
-    <%= f.label :ref_type %><br>
-    <%= f.text_field :ref_type %>
-  </div>
-  <div class="field">
-    <%= f.label :track_liquidity %><br>
-    <%= f.check_box :track_liquidity %>
-  </div>
-  <div class="field">
-    <%= f.label :identified %><br>
-    <%= f.check_box :identified %>
-  </div>
-  <div class="field">
-    <%= f.label :real_name_req %><br>
-    <%= f.check_box :real_name_req %>
-  </div>
-  <div class="field">
-    <%= f.label :sms_verify %><br>
-    <%= f.check_box :sms_verify %>
-  </div>
-  <div class="field">
-    <%= f.label :trusted_person %><br>
-    <%= f.check_box :trusted_person %>
-  </div>
-  <div class="field">
-    <%#= f.label :user_id %><br>
-    <%#= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
