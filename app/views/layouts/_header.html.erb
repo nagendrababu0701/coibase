@@ -18,12 +18,12 @@
                     <li class="<%= active_class('/pages/') %>"><%= link_to 'Buy Bitcoin', items_path(:type => "buy") %></li>
                     <li class="<%= active_class('/pages/') %>"><%= link_to 'Post an Ad', new_seller_path %></li>
 
-                    <li class="dropdown <%= active_class('/pages') %>">
+<!--                     <li class="dropdown <%= active_class('/pages') %>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><%= link_to 'Sell Bicoin', items_path(:type => "sell") %></li>
-                            <li><%= link_to 'Buy Bitcoin', items_path(:type => "buy") %></li>
-                            <li><%= link_to 'Post an Ad', new_seller_path %></li>
+                            <li><%#= link_to 'Sell Bicoin', items_path(:type => "sell") %></li>
+                            <li><%#= link_to 'Buy Bitcoin', items_path(:type => "buy") %></li>
+                            <li><%#= link_to 'Post an Ad', new_seller_path %></li>
                             <li><a href="#">Dropdown Menu 4</a></li>
                             <li><a href="#">Dropdown Menu 5</a></li>
                             <li class="divider"></li>
@@ -31,7 +31,7 @@
                             <li><a href="#">Terms of Use</a></li>
                         </ul>
                     </li>
-
+ -->
                     <% if user_signed_in? %>
                       <li><%#= link_to('Edit registration', edit_user_registration_path) %></li>
                     <% else %>
