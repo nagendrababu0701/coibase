@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.1.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', group: [:development, :test]
 #gem 'mysql2'#, group: [:development, :test]
@@ -48,6 +48,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'omniauth-coinbase'
 
+#gem 'thredded', github: 'jayroh/thredded'
+
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+
+gem 'will_paginate', '3.0.5'
 
 group :assets do
   gem 'less'
