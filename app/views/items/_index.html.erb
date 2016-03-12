@@ -1,3 +1,10 @@
+<div class="jumbotron">
+   <div class="container">
+   
+   </div>
+</div>
+
+
 <div class="container">
   <% if params[:type] == "buy"%>
    <h1>Buy bitcoins online</h1>
@@ -7,21 +14,13 @@
     <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Seller</th>
+            <th>Name</th>
             <th>Currency</th>
-            <th>Bank name</th>
-            <th>Margin</th>
-            <th>Min transaction limit</th>
-            <th>Max transaction limit</th>
-            <th>Restrict to</th>
+            <th>Bank</th>
             <th>Price</th>
-            <th>Title</th>
-            <th>Terms</th>
-            <th>Minimum volume</th>
-            <th>Minimum feedback score</th>
-            <th>New buyer limit</th>
-            <th>Payment ref</th>
-            <th colspan="3"></th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Action</th>
           </tr>
         </thead>
 
@@ -31,17 +30,19 @@
               <td><%= link_to item.user.name, item_path(item) %></td>
               <td><%= item.currency %></td>
               <td><%= item.bank_name %></td>
-              <td><%= item.margin %></td>
-              <td><%= item.min_transaction_limit %></td>
-              <td><%= item.max_transaction_limit %></td>
-              <td><%= item.restrict_to %></td>
-              <td><%= item.price %></td>
-              <td><%= item.title %></td>
-              <td><%= item.terms %></td>
-              <td><%= item.minimum_volume %></td>
-              <td><%= item.minimum_feedback_score %></td>
-              <td><%= item.new_buyer_limit %></td>
-              <td><%= item.payment_ref %></td>
+              <% if item.currency == "USD" %>
+                <td><%= number_to_currency(item.price)%></td>
+                <td><%= number_to_currency(item.min_transaction_limit)%></td>
+                <td><%= number_to_currency(item.max_transaction_limit)%></td>
+              <% elsif item.currency == "EUR" %>
+                <td><%= number_to_currency(item.price, :unit => "€")%></td>
+                <td><%= number_to_currency(item.min_transaction_limit, :unit => "€")%></td>
+                <td><%= number_to_currency(item.max_transaction_limit, :unit => "€")%></td>
+              <%else%>
+                <td><%= number_to_currency(item.price, :unit => "€")%></td>
+                <td><%= number_to_currency(item.min_transaction_limit, :unit => '$Cent')%></td>
+                <td><%= number_to_currency(item.max_transaction_limit, :unit => '$Cent')%></td>
+              <%end%>
               <% if current_user.present? && current_user.buyers.count >= 2 %>
                 <td>
                 <%= link_to "Buy BitCoin", new_buyer_path(item_id: item.id), disabled: true, class: "btn btn-info" %></td>

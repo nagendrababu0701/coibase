@@ -322,10 +322,15 @@
 	float: none;
 	margin: 0 auto;
 }
-/*.header-text{
-	float: none;
-	margin: 0 auto;
-}*/
+.header-ab-text{
+	font-size: 2em;
+	line-height: 1.5em;
+	margin: 30px 0 0 0;
+	font-family: 'Lato', sans-serif;
+	color: #53555c;
+	margin-top: 0;
+  font-weight: 700;
+}
 .navbar-fixed-top, .navbar-fixed-bottom{
 	position: fixed !important;
 }

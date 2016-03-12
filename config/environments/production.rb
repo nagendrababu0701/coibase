@@ -97,15 +97,15 @@ Rails.application.configure do
   }
 }
 
-config.action_mailer.delivery_method = :smtp
-# # SMTP settings for gmail
-config.action_mailer.smtp_settings = {
-  :address              => "smtp.live.com",
-  :port                 => 587,
-  :domain               => 'bitcoins.com',
-  :user_name            => "rordeveloper@outlook.com",
-  :password             => "Diehard_5",
-  :authentication       => 'plain'  
-}
+# config.action_mailer.delivery_method = :smtp
+# # # SMTP settings for gmail
+# config.action_mailer.smtp_settings = {
+#   :address              => "smtp.live.com",
+#   :port                 => 587,
+#   :domain               => 'bitcoins.com',
+#   :user_name            => "rordeveloper@outlook.com",
+#   :password             => "Diehard_5",
+#   :authentication       => 'plain'  
+# }
 
 end

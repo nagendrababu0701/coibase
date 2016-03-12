@@ -283,6 +283,9 @@ GEM
       rdoc (~> 4.0)
     select2-rails (3.5.9.3)
       thor (~> 0.14)
+    sendgrid-rails (2.0.5)
+      actionmailer (>= 3.0.0)
+      activesupport (>= 2.1.0)
     simple_captcha2 (0.3.4)
       rails (>= 4.1)
     simple_form (3.2.1)
@@ -351,6 +354,7 @@ DEPENDENCIES
   rqrcode_png
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sendgrid-rails (~> 2.0)
   simple_captcha2
   spring
   therubyracer
@@ -359,6 +363,3 @@ DEPENDENCIES
   utf8-cleaner
   web-console (~> 2.0)
   will_paginate (= 3.0.5)
-
-BUNDLED WITH
-   1.11.2
