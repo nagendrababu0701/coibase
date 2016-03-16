@@ -28,11 +28,14 @@
   <% end %>
   
   <%= render 'layouts/header' %>
-  <div class="jumbotron">
-   <div class="container">
-   
-   </div>
-</div>
+  <% if ['pages','sellers'].include?(params[:controller])%>
+  <%else%>
+    <div class="jumbotron">
+      <div class="container">
+     
+      </div>
+    </div>
+  <%end%>
 
   <%= yield %>
  
