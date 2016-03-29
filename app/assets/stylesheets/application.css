@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require 'forem/base'
  *= require_self
+ *= require bootstrap
+ *= require custom
+ *= require 'forem/base'
  */

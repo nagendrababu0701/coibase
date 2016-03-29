@@ -334,7 +334,134 @@
 .navbar-fixed-top, .navbar-fixed-bottom{
 	position: fixed !important;
 }
+.forums thead th {
+    background: #0088cc;
+    color: white;
+    padding: 10px;
+    border-bottom: 3px solid #232323;
+    font-size: 110%;
+}
+.offset1, .span10{
+    margin-left: 100px;
+    width: 780px;
+}
 
+#forum h2 a{
+  color: #0088cc;
+  text-decoration: none;
+  font-size: 31.5px;
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+}
+#forum #forum_topic_links {
+    margin-bottom: 10px;
+}
+#new_topic input{
+	    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    display: inline-block;
+    height: 32px;
+    padding: 5px 13px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    vertical-align: middle;
+   background-color: white;
+    border: 1px solid #cccccc;
+}
 
+#new_topic label{
+	    display: block;
+    margin-bottom: 5px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.new_topic textarea {
+    width: 50%;
+    min-height: 150px;
+    float: none;
+    margin-left: 0;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
 
+#new_post label{
+	    display: block;
+    margin-bottom: 5px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.new_post textarea {
+    width: 50%;
+    min-height: 150px;
+    float: none;
+    margin-left: 0;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
 
+.edit_post label{
+	    display: block;
+    margin-bottom: 5px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.edit_post textarea {
+    width: 50%;
+    min-height: 150px;
+    float: none;
+    margin-left: 0;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+form {
+    margin: 0 0 20px;
+}
+
+.post{
+	border: 1px solid #dedede;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 780px;
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+}
+
+.user, .col-md-2 {
+	float: left;
+    min-height: 1px;
+    margin-left: 20px;
+    width: 140px;
+}
+.col-md-7{
+	 	
+	 	border-left: 1px solid #ddd;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+    width: 540px;
+}
+
+.reply_to_post .col-md-7{
+	  border-left: 1px solid #ddd;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    float: right;
+    min-height: 1px;
+    margin-left: 60px;
+    width: 540px;
+}
+	}
