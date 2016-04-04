@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :listings, dependent: :destroy
   has_many :sellers, dependent: :destroy
   has_many :buyers, dependent: :destroy
-
+  has_many :items
 	def self.find_for_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	    user.provider = auth.provider

@@ -6,11 +6,11 @@ class ListingsController < ApplicationController
   # GET /listings.json
   
    def seller 
-    @listings = Listing.where(user: current_user).order("created_at DESC")
+   @sellers = Seller.all
   end
 
   def index
-    @listings = Listing.all.order("created_at DESC")
+    @sellers = Seller.all
   end
 
   # GET /listings/1

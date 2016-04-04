@@ -14,8 +14,8 @@
                     <li class="<%= active_class('/pages/services') %>"><%= link_to 'Services', "#" %></li>
                     <li class="<%= active_class('/pages/about') %>"><%= link_to 'About Us', main_app.pages_about_path %></li>
 <!--                     <li class="<%= active_class('/pages/portfolio') %>"><%#= link_to 'Portfolio', "#" %></li>
- -->                    <li class="<%= active_class('/pages/') %>"><%= link_to 'Sell Bicoin', main_app.items_path(:type => "sell") %></li>
-                    <li class="<%= active_class('/pages/') %>"><%= link_to 'Buy Bitcoin',main_app.items_path(:type => "buy") %></li>
+ -->                    <li class="<%= active_class('/pages/') %>"><%= link_to 'Sell Bicoin', main_app.sellers_path(:type => "sell") %></li>
+                    <li class="<%= active_class('/pages/') %>"><%= link_to 'Buy Bitcoin',main_app.listings_path(:type => "buy") %></li>
                     <li class="<%= active_class('/pages/') %>"><%= link_to 'Post an Ad', main_app.new_seller_path %></li>
 
 <!--                     <li class="dropdown <%= active_class('/pages') %>">

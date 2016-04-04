@@ -1,5 +1,6 @@
-  
-  
+<% if params[:type] == "sell"%>  
+  <%= render partial: "index", locals: {seller: @sellers} %>
+<%end%>
 <section id="main-slider" class="no-margin">
     <div class="carousel slide">
         <ol class="carousel-indicators">

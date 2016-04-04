@@ -14,7 +14,9 @@ class BuyersController < ApplicationController
   def create
     if @seller.sold_coin.blank? && @seller.sold_coin == nil
       @buyer = @seller.buyers.build(buyer_params)
-      if @buyer.save && 
+      if @buyer.save
+        account = client.primary_account
+        client.buy(account["id"],{"amount" => @buyer.purchase_amount,"currency" => "BTC"})
         @seller.update_attributes(sold_coin: "yes")
         BuyerMailer.buyer_email(@buyer, @seller).deliver
         redirect_to sellers_path

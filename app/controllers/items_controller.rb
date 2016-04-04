@@ -33,6 +33,17 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    
+
+    #@seller = current_user.sellers.new(seller_params)
+    if @item.save
+      binding.pry
+      client.primary_account.sell(amount: @seller.sell_amount, currency: @seller.currency)
+      qr_code = client.primary_account.addresses
+      BitcoinMailer.send_email_user(params[:seller][:seller_email],qr_code,@item).deliver
+    end
+    redirect_to :back
+
 
     respond_to do |format|
       if @item.save

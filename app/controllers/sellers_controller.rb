@@ -26,9 +26,13 @@ class SellersController < ApplicationController
     # end
     @seller = current_user.sellers.new(seller_params)
     if @seller.save
-      client.primary_account.sell(amount: @seller.sell_amount, currency: @seller.currency)
-      qr_code = client.primary_account.addresses
-      BitcoinMailer.send_email_user(params[:seller][:seller_email],qr_code,@seller).deliver
+      binding.pry
+      client.primary_account.send(to: @seller.seller_email, amount: @seller.sell_amount, currency: "BTC",description: "Sending 100 bitcoin")
+      code = client.primary_account.addresses[0]["address"]
+      @seller.update_attributes(bit_address: code)
+      qr_code = RQRCode::QRCode.new(code, :size => 4, :level => :h).to_img
+      qr_code.resize(200, 200).save("app/assets/images/missing.png")
+      BitcoinMailer.send_email_user(@seller.seller_email,@seller).deliver
     end
     redirect_to :back
   end
